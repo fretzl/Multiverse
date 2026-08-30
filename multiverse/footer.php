@@ -25,7 +25,7 @@ if ($has_social || $rss_links_enabled) {
     global $has_social;
     ?>
     <section class="social">
-      <h2><?php echo gettext_th('Follow me on...'); ?></h2>
+      <h2><?php echo i18n::gettext_th('Follow me on...'); ?></h2>
       <ul class="icons">
         <?php printFooterRSS(); // RSS links as defined in functions.php
         if ($has_social) {
@@ -72,20 +72,20 @@ if ($has_social || $rss_links_enabled) {
             $archive_link = substr(key($archive_link), 0, 4);
             $archive_link = '<a title="' . gettext('Archive') . '" href="' . getCustomPageURL('archive') . '">' . $archive_link . '-' . getdate()['year'] . '</a> ';
             if (($copy_page = getThemeOption('multiverse_copyright_page')) && function_exists('getPageURL')) {
-              $copy_text = '<a href="' . getPageURL($copy_page) . '" title="' . gettext_th('Copyright info') . '">' . $copy_text . '</a>';
+              $copy_text = '<a href="' . getPageURL($copy_page) . '" title="' . i18n::gettext_th('Copyright info') . '">' . $copy_text . '</a>';
             }
             echo $archive_link . $copy_text . '<br>';
           } ?>
           <i class="icon big fa-code" aria-hidden="true"></i>&nbsp;<a href="https://www.zenphoto.org/" title="Zenphoto CMS" target="_blank" rel="noopener"><span class="big">zen</span><span class="small">PHOTO</span></a>
           + <a href="https://html5up.net" title="HTML5 UP" target="_blank" rel="noopener">HTML5 UP</a>
-          + <a class="small" href="https://www.antonioranesi.it" title="Antonio Ranesi <?php echo gettext_th('Photographer'); ?>" target="_blank" rel="noopener"><i class="icon fa-heart-o" aria-hidden="true"></i> bic-ed</a>
+          + <a class="small" href="https://www.antonioranesi.it" title="Antonio Ranesi <?php echo i18n::gettext_th('Photographer'); ?>" target="_blank" rel="noopener"><i class="icon fa-heart-o" aria-hidden="true"></i> bic-ed</a>
         </p>
       </section>
     </div>
     <?php if ($has_contact) { ?>
       <div>
         <section>
-          <h2><?php echo gettext_th('Get in touch'); ?></h2>
+          <h2><?php echo i18n::gettext_th('Get in touch'); ?></h2>
           <?php printContactForm($mailsubject); ?>
           <div id="form-result"></div>
         </section>
@@ -96,7 +96,7 @@ if ($has_social || $rss_links_enabled) {
       <div class="menu_group">
         <?php if ($see_more_count) { ?>
           <section>
-            <h2><?php echo gettext_th("See more"); ?></h2>
+            <h2><?php echo i18n::gettext_th("See more"); ?></h2>
             <?php if ($has_search) { ?>
               <label for="search_input" class="hide"><?php echo gettext('Search') ?></label>
               <?php
@@ -147,7 +147,7 @@ if ($has_social || $rss_links_enabled) {
         <?php } ?>
         <?php if ($has_lang_menu) { ?>
           <section>
-            <h2><?php echo gettext_th("Language"); ?></h2>
+            <h2><?php echo i18n::gettext_th("Language"); ?></h2>
             <nav class="main-nav">
               <ul class="drop">
                 <li>

@@ -18,7 +18,7 @@ if ($pag_tot > 1) {
 <head>
   <meta charset="<?php echo LOCAL_CHARSET; ?>">
   <?php printHeadTitle() ?>
-  <?php zp_apply_filter('theme_head'); ?>
+  <?php filter::applyFilter('theme_head'); ?>
   <?php if (class_exists('RSS')) {
     if ($_rss_news) {
       printRSSHeaderLink("News", gettext("Latest news"));
@@ -30,7 +30,7 @@ if ($pag_tot > 1) {
   <?php printZDSearchToggleJS(); ?>
 </head>
 <body class="loading">
-  <?php zp_apply_filter('theme_body_open'); ?>
+  <?php filter::applyFilter('theme_body_open'); ?>
   <div id="wrapper">
     <?php include("header.php"); ?>
     <div id="main">
@@ -39,7 +39,7 @@ if ($pag_tot > 1) {
           $date = $_zp_current_search->getSearchDate();
           echo '<a href="' . getCustomPageURL('archive') . '">' . gettext('Gallery archive') . '</a>' . ': ' . getFormattedLocaleDate('F Y', $date);
         } else {
-          echo gettext_th('Search results');
+          echo i18n::gettext_th('Search results');
         }
         echo $pag; ?></h1>
         <?php
@@ -140,7 +140,7 @@ if ($pag_tot > 1) {
               $from = ' (' . $from . ' - ' . $to . ')';
             }
             ?>
-            <h2><?php echo ngettext_th('album', 'albums', $numalbums) . $from; ?></h2>
+            <h2><?php echo ni18n::gettext_th('album', 'albums', $numalbums) . $from; ?></h2>
           <?php } ?>
           <div class="album thumb">
             <a href="<?php echo html_encode(getAlbumURL()); ?>" title="<?php echo gettext('View album:'); ?> <?php printAnnotatedAlbumTitle(); ?>"><?php printCustomAlbumThumbImage(getBareAlbumTitle(), null, 300, 200, 300, 200); ?></a>
@@ -178,7 +178,7 @@ if ($pag_tot > 1) {
               $from = ' (' . $from . ' - ' . $to . ')';
             }
             ?>
-            <h2><?php echo ngettext_th('image', 'images', $numimages) . $from; ?></h2>
+            <h2><?php echo ni18n::gettext_th('image', 'images', $numimages) . $from; ?></h2>
           <?php } ?>
           <div class="thumb">
           <a class="image"<?php echo $media_adapted['data']; ?> href='<?php echo html_encode($media_adapted['url']); ?>' title="<?php printBareImageTitle(); ?>">
@@ -195,7 +195,7 @@ if ($pag_tot > 1) {
     </div>
   </div>
   <?php include("footer.php"); ?>
-  <?php zp_apply_filter('theme_body_close');
+  <?php filter::applyFilter('theme_body_close');
 
   // Open popup with the image of the referer image.php page
   if (!class_exists('static_html_cache')) { ?>

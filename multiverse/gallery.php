@@ -7,7 +7,7 @@ if (!defined('WEBPATH')) die();
 <html<?php printLangAttribute(); ?>>
 <head>
   <meta charset="<?php echo LOCAL_CHARSET; ?>">
-  <?php zp_apply_filter('theme_head'); ?>
+  <?php filter::applyFilter('theme_head'); ?>
   <?php printHeadTitle(); ?>
   <?php if (class_exists('RSS')) {
     if ($_rss_news) {
@@ -19,7 +19,7 @@ if (!defined('WEBPATH')) die();
   } ?>
 </head>
 <body class="loading">
-  <?php zp_apply_filter('theme_body_open'); ?>
+  <?php filter::applyFilter('theme_body_open'); ?>
   <div id="wrapper">
     <?php include 'header.php'; ?>
     <div id="main">
@@ -35,6 +35,6 @@ if (!defined('WEBPATH')) die();
     </div>
   </div>
   <?php include 'footer.php'; ?>
-  <?php zp_apply_filter('theme_body_close'); ?>
+  <?php filter::applyFilter('theme_body_close'); ?>
 </body>
 </html>

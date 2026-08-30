@@ -19,13 +19,13 @@ if (isset($_zp_current_search)) {
   $origin = array_merge(
     getParentBreadcrumb()[0],
     array(
-      'open_title' => gettext_th('Open the popup in Search page'),
+      'open_title' => i18n::gettext_th('Open the popup in Search page'),
       'key' => stripcslashes($_zp_current_search->codifySearchString()),
     )
   );
 
   if ($_zp_current_search->getSearchDate()) {
-    $origin['open_title'] = gettext_th('Open the popup in Archive page');
+    $origin['open_title'] = i18n::gettext_th('Open the popup in Archive page');
   }
 
   // NOTE: Dates are not used at all in cached files and
@@ -58,7 +58,7 @@ if (isset($_zp_current_search)) {
     'link' => html_encode($_zp_current_album->getLink($page)),
     'title' => gettext('View Album'),
     'text' => gettext('Album'),
-    'open_title' => gettext_th('Open the popup in Album page'),
+    'open_title' => i18n::gettext_th('Open the popup in Album page'),
     'key' => getBareAlbumTitle(),
   );
 }
@@ -84,7 +84,7 @@ if (!$_zp_current_image->isPhoto()) {
 <html<?php printLangAttribute(); ?>>
 <head>
   <meta charset="<?php echo LOCAL_CHARSET; ?>">
-  <?php zp_apply_filter('theme_head'); ?>
+  <?php filter::applyFilter('theme_head'); ?>
   <?php printHeadTitle(); ?>
   <?php if (class_exists('RSS') && $_rss_gallery) {
     printRSSHeaderLink("Album", "Album: " . getAlbumTitle());
@@ -99,7 +99,7 @@ if (!$_zp_current_image->isPhoto()) {
 <?php } ?>
 </head>
 <body class="loading">
-  <?php zp_apply_filter('theme_body_open'); ?>
+  <?php filter::applyFilter('theme_body_open'); ?>
   <div id="wrapper">
     <?php include 'header.php'; ?>
     <div id="main">
@@ -169,6 +169,6 @@ if (!$_zp_current_image->isPhoto()) {
   <?php include("footer.php"); ?>
   <?php
   printCodeblock(1);
-  zp_apply_filter('theme_body_close'); ?>
+  filter::applyFilter('theme_body_close'); ?>
 </body>
 </html>
